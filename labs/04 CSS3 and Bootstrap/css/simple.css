@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, Verdana, sans-serif;
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: lightgoldenrodyellow;
+}
+
+h1, h2 {
+    color: blue;
+    font-weight: bold;
+}
+
+ul, ol{
+    color: #4d4d4d;
+    border: 1px solid grey;
+    width: 20%;
+    padding: 2%;
+}
+
+figure{
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+p::first-letter {
+    font-size:1.5em;
+}
+
+p::first-line {
+    font-weight: bold;
+}
