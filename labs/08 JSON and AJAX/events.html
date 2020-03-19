@@ -9,16 +9,28 @@
 	}
   </style>
   <script>
-window.onload = function() {
+  window.onload = function() {
 	var div = document.getElementById("clickme");
 	if (div.addEventListener) {
 		div.addEventListener("click", handleClick, false);
 	} else if (div.attachEvent) {
 		div.attachEvent("click", handleClick);
 	}
-};
 
-function handleClick(e) {
+	var divi = document.getElementById("sometext");
+    divi.addEventListener("mouseover", hoverOver);
+    divi.addEventListener("mouseout", hoverOut);
+  };
+
+  function hoverOver() {
+    document.getElementById("sometext").style.color = "gray";
+  }
+
+  function hoverOut(){
+    document.getElementById("sometext").style.color = "black";
+  }
+
+  function handleClick(e) {
 	var evt = e || window.event;
 	var target;
 	if (evt.target) {
@@ -27,11 +39,13 @@ function handleClick(e) {
 		target = evt.srcElement;
 	}
 	alert("You clicked on " + target.id);
-}
+  }
 
   </script>
 </head>
 <body>
 <span id="clickme">Click me!</span>
+
+<div id="sometext">Some text</div>
 </body>
 </html>

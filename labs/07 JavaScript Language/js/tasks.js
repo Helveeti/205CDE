@@ -38,9 +38,38 @@ function addTask() {
     
 } // End of addTask() function.
 
+function deleteTask(){
+    tasks = document.getElementById('output');
+    var output = document.getElementById('output');
+    var message = '';
+
+    if(tasks.value){
+
+        for(var i = 0; i < tasks.length; i++)  {
+            for(const n in tasks){
+                if(tasks[i] == n){
+                    tasks.splice(i,1); i--;
+                }
+            }
+        }
+
+    }
+
+    // UPDATE THE PAGE
+    message = '<h2>To-Do</h2><ol>';
+    for (var i = 0, count = tasks.length; i < count; i++) {
+        message += '<li>' + tasks[i] + '</li>';
+    }
+    message += '</ol>';
+    output.innerHTML = message;
+
+}
+
 // Initial setup:
 function init() {
     'use strict';
     document.getElementById('theForm').onsubmit = addTask;
+    document.getElementById('theForm').onreset = deleteTask;
+
 } // End of init() function.
 window.onload = init;
