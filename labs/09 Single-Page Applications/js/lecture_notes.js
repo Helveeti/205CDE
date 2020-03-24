@@ -13,6 +13,21 @@ document.querySelector('#addPage button').onclick = function() {
 	console.log('add note');
 	var title = document.querySelector('#addPage input').value;
 	var note = document.querySelector('#addPage textarea').value;
+
+	notes += "| " + title + " | " + note;
+	loadList();
+
+	document.querySelector('#addPage input').value = "";
+	document.querySelector('#addPage textarea').value = "";
+};
+
+document.querySelector('#editPage button').onclick = function() {
+	console.log('edit note');
+
+	updateNote();
+
+	document.querySelector('#editPage input').value = "";
+	document.querySelector('#editPage textarea').value = "";
 };
 
 /*
@@ -20,10 +35,16 @@ document.querySelector('#addPage button').onclick = function() {
  */ 
 document.querySelector('nav > ul > li:nth-child(1)').onclick = function() {
 	console.log('first link clicked');
+
+	document.getElementById('editPage').style.display = 'none';
+	document.getElementById('addPage').style.display = 'block';
 };
 
 document.querySelector('nav > ul > li:nth-child(2)').onclick = function() {
 	console.log('second link clicked');
+
+	document.getElementById('editPage').style.display = 'block';
+	document.getElementById('addPage').style.display = 'none';
 };
 
 
