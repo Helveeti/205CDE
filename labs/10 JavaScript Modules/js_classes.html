@@ -31,6 +31,42 @@ function Coffee(roast, ounces) {
 		}
 		return msg;
 	};
+
+    this.sip = function(){
+        console.log("Hmm, tasty.");
+    }
+}
+
+function Tea(type, ounces){
+    this.type = type;
+    this.ounces = ounces;
+    this.getSteepTime = function() {
+        if (this.ounces === 8) {
+            return 8;
+        } else if (this.ounces === 12) {
+            return 12;
+        } else if (this.ounces === 16) {
+            return 16;
+        }
+    };
+    this.order = function() {
+        var msg;
+        switch (this.getSteepTime()) {
+            case 8:
+            case 12:
+            case 16:
+                msg = "You've ordered a " + this.getSteepTime() + " " + this.type + " tea.";
+                break;
+            default:
+                msg = "We don't have a " + this.type + " in that size!";
+                break;
+        }
+        return msg;
+    };
+
+    this.sip = function(){
+        console.log("Hmm, tasty.");
+    }
 }
 
 var coffee = new Coffee("House Blend", 12);
@@ -38,9 +74,14 @@ console.log(coffee.order());
 
 var darkRoast = new Coffee("Dark Roast", 16);
 console.log(darkRoast.order());
+console.log(darkRoast.sip());
 
 var specialBlend = new Coffee("Special Blend", 200);
 console.log(specialBlend.order());
+
+var tea = new Tea("Black tea", 8);
+console.log(tea.order());
+console.log(tea.sip());
 
 </script>
 </head>
