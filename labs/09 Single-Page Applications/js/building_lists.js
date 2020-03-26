@@ -18,20 +18,12 @@ for (var i=0; i < books.length; i++) {
 
 document.body.appendChild(list);
 
-/*window.onload = function(){
-	var td = document.getElementsByClassName('td');
-	if(td.addEventListener){
-		td.addEventListener("click", handleClick(), false);
-	}
-}
+window.onload = function(){
 
-function handleClick(e) {
-	var evt = e || window.event;
-	var target;
-	if (evt.target) {
-		target = evt.target;
-	} else {
-		target = evt.srcElement;
+	for(var tr of list){
+		tr.cells[0].addEventListener("click", function(e){
+			titleToSet.innerHTML = e.path[0].innerText;
+		}, false);
 	}
-	alert("You clicked on " + target.id);
-}*/
+
+}
