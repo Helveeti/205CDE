@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8">
 <title>Click me!</title>
@@ -43,7 +43,7 @@ window.onload = function() {
 	};
 };*/
 
-window.onload = function() {
+/*window.onload = function() {
 	var count = 0;
 	var message = "You clicked ";
 	var div = document.getElementById("playback-speed");
@@ -63,17 +63,56 @@ window.onload = function() {
 		count = 0;
 		div.innerHTML = message + count + " times!";
 	};
-};
+}; */
 
 </script> 
 </head> 
 <body>
-	<button id="plus">+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+	<!--<button id="plus">+</button>
 	<button id="minus">-</button>
 	<button id="zero">0</button>
 	<button id="clickme">Click me!</button>
 	<div id="message"></div>
-	<div id="playback-speed"></div>
+	<div id="playback-speed"></div>-->
+
+<div id="counterVue">
+
+	<p>{{ counter }}</p>
+
+	<button v-on:click="plus">+</button>
+	<button v-on:click="minus">-</button>
+	<button v-on:click="zero">0</button>
+
+</div>
+
+<!-- Vue tehtävä 3 -->
+
+<script>
+
+	var counterVue = new Vue({
+		el: '#counterVue',
+		data: {
+			counter: 0
+		},
+		methods: {
+			plus: function () {
+				this.counter += 1
+			},
+			minus: function () {
+				this.counter -= 1
+			},
+			zero: function () {
+				this.counter = 0
+			}
+		}
+	})
+
+</script>
+
+
 </body>
 </html>
 

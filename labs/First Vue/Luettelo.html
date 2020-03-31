@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="luettelo">
+    <ol>
+        <li v-for="(text, id) in groceryList">{{ text.text }} <button v-on:click="deleteThisItem(id)">Delete Item</button></li>
+    </ol>
+
+    <input type="text" v-model="grocery" placeholder="add new item here"/>
+    <button v-on:click="addItem">Add</button>
+    <button v-on:click="deleteItem">Remove top one</button>
+</div>
+
+<script>
+
+    var app7 = new Vue({
+        el: '#luettelo',
+        data: {
+            groceryList: [
+                {id: 0, text: 'Vegetables'},
+                {id: 1, text: 'Cheese'},
+                {id: 2, text: 'Whatever else humans are supposed to eat'}
+            ]
+        },
+        methods: {
+            addItem: function (){
+                this.groceryList.push({text: this.grocery })
+                this.grocery = ''
+            },
+            deleteItem: function(){
+                this.groceryList.splice({id: this.grocery}, 1)
+            },
+            deleteThisItem: function(index) {
+                this.groceryList.splice(index, 1)
+            }
+        }
+    })
+
+
+</script>
+
+</body>
+</html>
